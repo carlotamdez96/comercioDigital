@@ -4,13 +4,28 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/daec488c78.js" crossorigin="anonymous"></script>
     <title>Llaveros Solidarios</title>
+    <link href="./Estilos/reset.css" rel="stylesheet">
+    <link href="./Estilos/variables.css" rel="stylesheet">
+    <style>
+        .encabezado{
+            display: flex;
+            flex-direction: row;
+            height: 10vh;
+            justify-content:space-between;
+            padding: 20px;
+            align-items: center;
+            background-color: rgb(83, 156, 221);
+            font-family: var(--fuente--principal);
+            font-size: 1.3em;
+        }
+    </style>
 </head>
 <body>
-    <header class="encabezado">
+    <nav class="encabezado">
         <h1 class="encabezado__titulo">Llaveros Solidarios</h1>
-        <div class="encabezado__about">About us</div>
-        
-    </header>
+        <i class="encabezado__carrito fa-solid fa-cart-shopping"></i>
+    </nav>
 </body>
 </html>
