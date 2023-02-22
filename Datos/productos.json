@@ -1,0 +1,91 @@
+[
+    {
+        "id":1,
+        "nombre":"Llavero A",
+        "descripcion":"Hecho con resina y pins",
+        "foto": "imagenA.png",
+        "precio":"2,50",
+        "moneda":"€",
+        "unidades":3,
+        "promocion":0,
+        "tipo":"letra"
+    },
+    {
+        "id":2,
+        "nombre":"Llavero B",
+        "descripcion":"Hecho con resina",
+        "foto": "imagenB.png",
+        "precio":"2,50",
+        "moneda":"€",
+        "unidades":3,
+        "promocion":0,
+        "tipo":"letra"
+    },
+    {
+        "id":3,
+        "nombre":"Llavero C",
+        "descripcion":"Hecho con resina y papel de oro",
+        "foto": "imagenC.png",
+        "precio":"2,50",
+        "moneda":"€",
+        "unidades":3,
+        "promocion":0,
+        "tipo":"letra"
+    },
+    {
+        "id":4,
+        "nombre":"Llavero D",
+        "descripcion":"Hecho con resina y papel de oro",
+        "foto": "imagenD.png",
+        "precio":"2,50",
+        "moneda":"€",
+        "unidades":3,
+        "promocion":0,
+        "tipo":"letra"
+    },
+    {
+        "id":5,
+        "nombre":"Llavero E",
+        "descripcion":"Hecho con resina y purpurina",
+        "foto": "imagenE.png",
+        "precio":"2,50",
+        "moneda":"€",
+        "unidades":3,
+        "promocion":0,
+        "tipo":"letra"
+    },
+
+    {
+        "id":6,
+        "nombre":"Llavero F",
+        "descripcion":"Hecho con resina y purpurina",
+        "foto": "imagenF.png",
+        "precio":"2,50",
+        "moneda":"€",
+        "unidades":3,
+        "promocion":0,
+        "tipo":"letra"
+    },
+    {
+        "id":7,
+        "nombre":"Llavero G",
+        "descripcion":"Hecho con resina ",
+        "foto": "imagenG.png",
+        "precio":"2,50",
+        "moneda":"€",
+        "unidades":3,
+        "promocion":0,
+        "tipo":"letra"
+    },
+    {
+        "id":8,
+        "nombre":"Llavero H",
+        "descripcion":"Hecho con resina",
+        "foto": "imagenA.png",
+        "precio":"2,50",
+        "moneda":"€",
+        "unidades":3,
+        "promocion":0,
+        "tipo":"letra"
+    }
+]
