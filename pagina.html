@@ -9,23 +9,103 @@
     <link href="./Estilos/reset.css" rel="stylesheet">
     <link href="./Estilos/variables.css" rel="stylesheet">
     <style>
-        .encabezado{
+           .encabezado{
             display: flex;
             flex-direction: row;
             height: 10vh;
             justify-content:space-between;
             padding: 20px;
             align-items: center;
-            background-color: rgb(83, 156, 221);
+            background-image:url(./Imagenes/PicsArt_08-09-08.05.31.png);
+            background-repeat: no-repeat;
+            background-position: 35% 70%;
+            background-size:cover;
+
             font-family: var(--fuente--principal);
             font-size: 1.3em;
         }
+        body{
+            background-color: rgb(244, 244, 244);
+        }
+        .cuerpo{
+            display: grid;
+            width: 90%;
+            grid-template-columns: 50% 50%;
+            gap: 20px;
+            padding-top: 20px;
+            padding-left: 20px;
+            
+            
+        }
+        .cuerpo__ficha{
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            /* gap: 2px; */
+            background-color: white;
+            
+        }
+        .ficha__imagen{
+            height: 200px;
+            padding: 20px;
+        }
+        .ficha__contenido{
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+            padding-bottom: 10px;
+            
+        }
     </style>
+    <script>
+        window.onload=function(){
+
+            const cuerpo = document.querySelector(".cuerpo");
+            
+            async function recuperaDatos(){
+                const response = await fetch("../Datos/productos.json");
+                const productos = await response.json();
+                trataDatos(productos);
+            }
+
+            function trataDatos(productos){
+                
+                for (const producto of productos) {
+                  
+                    var cuerpo_ficha = document.createElement("div");
+                    cuerpo_ficha.classList.add("cuerpo__ficha");
+                    var imagen = document.createElement("img");
+                    imagen.classList.add("ficha__imagen");
+                    let img=producto.foto;
+                    imagen.src=`./Imagenes/${img}`;
+                    imagen.alt="llavero de letra"+producto.nombre;
+                    console.log(imagen.src);
+                    var ficha_contenido = document.createElement("div");
+                    ficha_contenido.classList.add("ficha__contenido");
+                    ficha_contenido.innerHTML+=`
+                    <h3 class="contenido__nombre">${producto.nombre}</h3>
+                    <p class="contenido__precio">${producto.precio}${producto.moneda}</p>
+                    `;
+                    cuerpo_ficha.appendChild(imagen);
+                    cuerpo_ficha.appendChild(ficha_contenido);
+                    cuerpo.appendChild(cuerpo_ficha);
+                }
+            }
+            recuperaDatos();
+        }
+    </script>
+    
 </head>
 <body>
     <nav class="encabezado">
         <h1 class="encabezado__titulo">Llaveros Solidarios</h1>
         <i class="encabezado__carrito fa-solid fa-cart-shopping"></i>
     </nav>
+    <section class="cuerpo">
+        
+    </section>
 </body>
 </html>
