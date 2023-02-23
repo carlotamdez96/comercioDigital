@@ -8,10 +8,50 @@
     <title>Llaveros Solidarios</title>
     <link href="./Estilos/reset.css" rel="stylesheet">
     <link href="./Estilos/variables.css" rel="stylesheet">
-    <link rel="stylesheet" href="./Estilos/estilosGenerales.css">
+    <!-- <link rel="stylesheet" href="./Estilos/estilosGenerales.css"> -->
+    <style>
+        body{
+            background-color: rgb(234, 228, 228);
+        }
+        /* Estilos para la Pagina detalle */
+        .navegador{
+            display: flex;
+            flex-direction: row;
+            height: 10vh;
+            justify-content:space-between;
+            padding: 20px;
+            align-items: center;
+            font-size: 1.3em;
+        }
+        i{
+            cursor: pointer;
+            z-index: 1;
+            position: relative;
+        }
+        .cuerpo__imagen{
+            width: 100%;
+            height: 60vh;
+            position: absolute;
+            top: 0;
+            
+        }
+    </style>
     <script>
         window.onload=function(){
             document.querySelector(".navegador__atras").addEventListener("click",()=>window.location.href="pagina.html");
+            var cuerpo = document.querySelector(".cuerpo");
+              //DATOS RECUPERADOS DEL SESSIONSTORAGE
+            var perfil = JSON.parse(sessionStorage.getItem("llavero"));
+            pintaDatos(perfil);
+          
+            console.log(perfil.nombre);
+
+            function pintaDatos(perfil){
+                var imagen = document.createElement("img");
+                imagen.classList.add("cuerpo__imagen");
+                imagen.src=`./Imagenes/${perfil.foto}`;
+                cuerpo.appendChild(imagen);
+            }
         }
     </script>
 </head>

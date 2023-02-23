@@ -1,7 +1,7 @@
 window.onload=function(){
 
     const cuerpo = document.querySelector(".cuerpo");
-
+    const map = new Map();
     
     async function recuperaDatos(){
         const response = await fetch("../Datos/productos.json");
@@ -17,6 +17,8 @@ window.onload=function(){
     function trataDatos(productos){
         
         for (const producto of productos) {
+            map.set(producto.nombre, producto);
+
             var cuerpo_ficha = document.createElement("div");
             cuerpo_ficha.classList.add("cuerpo__ficha");
             var contenedorImagen= document.createElement("div");
@@ -26,7 +28,7 @@ window.onload=function(){
             imagen.classList.add("ficha__imagen");
             let img=producto.foto;
             imagen.src=`./Imagenes/${img}`;
-            imagen.alt="llavero de letra"+producto.nombre;
+            imagen.alt=producto.nombre;
             contenedorImagen.appendChild(imagen);
             var ficha_contenido = document.createElement("div");
             ficha_contenido.classList.add("ficha__contenido");
@@ -63,7 +65,7 @@ window.onload=function(){
             cuerpo_ficha.appendChild(contenedorImagen);
             cuerpo_ficha.appendChild(ficha_contenido);
             cuerpo.appendChild(cuerpo_ficha);
-            
+           
         }
     }
     function calculaNuevoPrecio(precio,promocion){
@@ -74,7 +76,16 @@ window.onload=function(){
    
 
     recuperaDatos();
-    function abreProductoDetalle(){
+
+    //Redigire a la pagina de detalle de ese producto Y ADEMAS cargare la informacion de ese producto en un SessionStorage
+    function abreProductoDetalle(even){
+        
+        var imagenPasada = even.target;
+        let alt = imagenPasada.alt;
+        const obj =map.get(alt);
+        sessionStorage.setItem("llavero",JSON.stringify(obj));
         window.location.href="paginaDetalle.html";
+        
+        
     }
 }
