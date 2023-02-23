@@ -74,16 +74,4 @@ body{
 
 
 
-/* Estilos para la Pagina detalle */
-.navegador{
-    display: flex;
-    flex-direction: row;
-    height: 10vh;
-    justify-content:space-between;
-    padding: 20px;
-    align-items: center;
-    font-size: 1.3em;
-}
-i{
-    cursor: pointer;
-}
+
