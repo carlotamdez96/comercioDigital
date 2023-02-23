@@ -9,18 +9,20 @@
     <link href="./Estilos/reset.css" rel="stylesheet">
     <link href="./Estilos/variables.css" rel="stylesheet">
     <link rel="stylesheet" href="./Estilos/estilosGenerales.css">
-    <script src="./Script/funcionesPaginaPrincipal.js">
-       
+    <script>
+        window.onload=function(){
+            document.querySelector(".navegador__atras").addEventListener("click",()=>window.location.href="pagina.html");
+        }
     </script>
-    
 </head>
 <body>
-    <nav class="encabezado">
-        <h1 class="encabezado__titulo">Llaveros Solidarios</h1>
-        <i class="encabezado__carrito fa-solid fa-cart-shopping"></i>
+    <nav class="navegador">
+        <i class="navegador__atras fa-solid fa-arrow-left"></i>
+        <i class="navegador__carrito fa-solid fa-cart-shopping"></i>
     </nav>
     <section class="cuerpo">
         
     </section>
+    
 </body>
 </html>

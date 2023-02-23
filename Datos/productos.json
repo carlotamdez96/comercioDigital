@@ -7,7 +7,7 @@
         "precio":"2,50",
         "moneda":"€",
         "unidades":3,
-        "promocion":0,
+        "promocion":10,
         "tipo":"letra"
     },
     {
@@ -85,7 +85,7 @@
         "precio":"2,50",
         "moneda":"€",
         "unidades":3,
-        "promocion":0,
+        "promocion":20,
         "tipo":"letra"
     }
 ]

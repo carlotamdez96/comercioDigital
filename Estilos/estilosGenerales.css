@@ -1,0 +1,89 @@
+.encabezado{
+    display: flex;
+    flex-direction: row;
+    height: 10vh;
+    justify-content:space-between;
+    padding: 20px;
+    align-items: center;
+    background-image:url(../Imagenes/PicsArt_08-09-08.05.31.png);
+    background-repeat: no-repeat;
+    background-position: 35% 70%;
+    background-size:cover;
+
+    font-family: var(--fuente--principal);
+    font-size: 1.3em;
+}
+
+body{
+    background-color: rgb(234, 228, 228);
+}
+.cuerpo{
+    display: grid;
+    width: 90%;
+    grid-template-columns: 50% 50%;
+    gap: 20px;
+    padding-top: 20px;
+    padding-left: 20px;
+    
+    
+}
+.cuerpo__ficha{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    /* gap: 2px; */
+    background-color: white;
+    
+}
+.ficha__imagen{
+    height: 200px;
+    padding: 20px;
+    cursor: pointer;
+}
+.ficha__contenido{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 10px;
+    
+}
+.ficha__promocion{
+    font-size: 1.5em;
+    position: relative;
+    z-index: 1;
+    left: 17px;
+    top: -190px;
+    color: white;
+    background-color: violet;
+    border-radius: 50%;
+    padding: 3px;
+    
+}
+.ficha__contenedor__imagen{
+    height: 200px; 
+    /* ESTA SERA LA ALTURA DE LA IMAGEN SIEMPRE */
+}
+.contenido__precio{
+    display: flex;
+    gap: 14px;
+}
+
+
+
+
+/* Estilos para la Pagina detalle */
+.navegador{
+    display: flex;
+    flex-direction: row;
+    height: 10vh;
+    justify-content:space-between;
+    padding: 20px;
+    align-items: center;
+    font-size: 1.3em;
+}
+i{
+    cursor: pointer;
+}
