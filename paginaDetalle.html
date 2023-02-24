@@ -35,6 +35,14 @@
             top: 0;
             
         }
+        .contenedor{
+            width: 100%;
+            height: 48vh;
+            background-color: white;
+            position: absolute;
+            top:420px;
+            border-radius: 60px 60px 0px 0px;
+        }
     </style>
     <script>
         window.onload=function(){
@@ -50,7 +58,21 @@
                 var imagen = document.createElement("img");
                 imagen.classList.add("cuerpo__imagen");
                 imagen.src=`./Imagenes/${perfil.foto}`;
+                
+                var contenedor = document.createElement("div");
+                contenedor.classList.add("contenedor");
+                var contenedor1 = document.createElement("div");
+                contenedor1.classList.add("contenedor1");
+                var text=`
+                <h1 class="contenedor1__titulo">${perfil.nombre}</h1>
+                <p class="contenedor1__precio">${perfil.precio}</p>
+                <p class="contenedor1__descripcion">${perfil.descripcion}</p>
+                `;
+                contenedor1.innerHTML=text;
+                contenedor.appendChild(contenedor1);
+
                 cuerpo.appendChild(imagen);
+                cuerpo.appendChild(contenedor);
             }
         }
     </script>
