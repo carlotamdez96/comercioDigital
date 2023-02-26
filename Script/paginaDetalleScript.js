@@ -1,7 +1,9 @@
 window.onload=function(){
   //Referencias
     document.querySelector(".navegador__atras").addEventListener("click",()=>window.location.href="pagina.html");
-    
+    var cantidad=0;
+    var carrito = document.querySelector(".carrito");
+    var miMap = new Map();
 
     var cuerpo = document.querySelector(".cuerpo");
       //DATOS RECUPERADOS DEL SESSIONSTORAGE
@@ -14,17 +16,34 @@ window.onload=function(){
         var imagen = document.createElement("img");
         imagen.classList.add("cuerpo__imagen");
         imagen.src=`./Imagenes/${perfil.foto}`;
-        
+        if(perfil.promocion>0){
+          var promocion=true;
+        }
         var contenedor = document.createElement("div");
         contenedor.classList.add("contenedor");
         var contenedor1 = document.createElement("div");
         contenedor1.classList.add("contenedor1");
-        var text=`
-        <h1 class="contenedor1__titulo">${perfil.nombre}</h1>
-        <p class="contenedor1__precio">${perfil.precio}${perfil.moneda}</p>
-        <p class="contenedor1__descripcion">${perfil.descripcion}</p>
-        `;
-        contenedor1.innerHTML=text;
+        
+          
+      
+        if(promocion){
+          let nuevoPrecio= calculaNuevoPrecio(perfil.precio,perfil.promocion);
+          var text=`
+          <h1 class="contenedor1__titulo">${perfil.nombre}</h1>
+          <p class="contenedor1__precio">${perfil.precio}${perfil.moneda}  <span> ${nuevoPrecio}0${perfil.moneda}</span></p>
+          <p class="contenedor1__promocion">${perfil.promocion}%</p>
+          <p class="contenedor1__descripcion">${perfil.descripcion}</p>
+          `;
+          contenedor1.innerHTML=text;
+        }else{
+          var text=`
+          <h1 class="contenedor1__titulo">${perfil.nombre}</h1>
+          <p class="contenedor1__precio">${perfil.precio}${perfil.moneda}</p>
+          <p class="contenedor1__descripcion">${perfil.descripcion}</p>
+          `;
+          contenedor1.innerHTML=text;
+        }
+        
         contenedor.appendChild(contenedor1);
 
         cuerpo.appendChild(imagen);
@@ -64,10 +83,109 @@ window.onload=function(){
 
 
        //Evento para el boton de comprar
-    boton.addEventListener("click",añadeCarrito);
 
+    document.querySelector(".contenedor2__boton").addEventListener("click",añadeCarrito);
+
+    //Function para añadir llaveros al carrito
     function añadeCarrito(){
+   
       //Añadire al carrito la variable perfil donde se encuentra el objeto que añado y ademas debo guardar la cantidad que se va a comprar
+      if(texto.value>=1){
+        var imagenMini = perfil.foto;
+        var nombreMini = perfil.nombre;
+        var precioMini = parseFloat(perfil.precio.replace(",","."));
+        var monedaMini = perfil.moneda;
+        var promocionMini = perfil.promocion;
+      }
+      //Guardo informacion en mi map
+
+      //Si no esta ya guardado
+      if(!(miMap.has(nombreMini)) && promocionMini!=0){
+        miMap.set(nombreMini,{
+          nombre: nombreMini,
+          imagen: imagenMini,
+          moneda: monedaMini,
+          cantidad: texto.value,
+          promocion:promocionMini,
+          precio: precioMini*parseFloat(texto.value)*(1-promocionMini/100),
+        });
+      }else if(!(miMap.has(nombreMini)) && promocionMini==0){
+        miMap.set(nombreMini,{
+          nombre: nombreMini,
+          imagen: imagenMini,
+          moneda: monedaMini,
+          cantidad: texto.value,
+          promocion:promocionMini,
+          precio: precioMini*parseFloat(texto.value),
+        });
+      
+      }else{
+        //Si ya esta guardado entonces modifico la cantidad que tiene
+        let llavero = miMap.get(nombreMini);
+        llavero.precio += parseFloat(precioMini)*(llavero.cantidad);
+
+        llavero.cantidad=parseFloat(llavero.cantidad)+parseFloat(texto.value);
+        
+    
+      }
+      
+   //referencio el carrito de la compra
+
+      var carrito =document.querySelector(".navegador__carrito");
+      //Funcion sumar cantidad al carrito
+     sumacarrito(carrito);
+      carrito.addEventListener("click",pintaCarrito(miMap));
     }
+    //Referencias que necesitare para añadir el numero al carrito
+    var suma=0;
+    var productoañadido = document.createElement("span");
+      productoañadido.classList.add("productoañadido");
+    function sumacarrito(carrito){
+      var cantidad = texto.value;
+      if(cantidad!=0){
+
+        suma=parseInt(suma)+parseInt(cantidad);
+        productoañadido.innerText="";
+        productoañadido.textContent=suma;
+        
+        carrito.appendChild(productoañadido);
+      }
+       
+    }
+
+    function calculaNuevoPrecio(precio,promocion){
+      var dinero = parseFloat(precio,10);
+      var descuento = parseFloat(promocion,10);
+      return dinero*(1-(descuento/100));
+  }
+ 
+  //Function de pintar carrito
+  function pintaCarrito(miMap){
+
+    //Primero lo vacio
+    carrito.innerHTML="";
+    console.log(miMap);
+    //Recorro el mapa donde estan los productos
+    for (let [nombre,llavero] of miMap) {
+        let contenedor = document.createElement("div");
+        contenedor.classList.add("carrito__contenedor");
+        contenedor.innerHTML=`
+          <div class="contenedor__imagen" >
+              <img src=./Imagenes/${llavero.foto} width="200">
+          </div>
+          <div class="contenedor__texto">
+              <p class="texto__titulo">${nombre}</p>
+              <p class="texto__precio">${llavero.precio}${llavero.moneda}</p>
+              <div class="texto__unidades">
+                <button class="unidades__menos">-</button>
+                <span class="unidades__numero">${llavero.cantidad}</span>
+                <button class="unidades__mas">+</button>
+            </div>
+          </div>
+        `;
+        carrito.appendChild(contenedor);
+    }
+
+  }
 
 }

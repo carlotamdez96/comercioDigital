@@ -28,6 +28,8 @@
             cursor: pointer;
             z-index: 1;
             position: relative;
+            font-size: 1.9em;
+            color: white;
         }
         .cuerpo__imagen{
             width: 100%;
@@ -97,7 +99,32 @@
             border: 0;
 
         }
-      
+        span{
+            font-size: 1.4em;
+        }
+        .contenedor1__promocion{
+            position: absolute;
+            right: 20px;
+            top: -10px;
+            font-size: 1.7em;
+            background-color: var(--color--base);
+            padding: 10px;
+            border-radius: 50%;
+        }
+
+    
+        .productoañadido{
+            font-size: .7em;
+            position: absolute;
+            right: 5px;
+            top: -15px;
+            z-index: 1;
+            background-color: pink;
+            border-radius: 50%;
+            color: black;
+            padding: 3px;
+            
+        }
         
       
     </style>
@@ -108,9 +135,10 @@
         <i class="navegador__atras fa-solid fa-arrow-left"></i>
         <i class="navegador__carrito fa-solid fa-cart-shopping"></i>
     </nav>
+    
     <section class="cuerpo">
         
     </section>
-    
+    <div class="carrito"></div>
 </body>
 </html>

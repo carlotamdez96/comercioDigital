@@ -70,7 +70,9 @@ body{
     display: flex;
     gap: 14px;
 }
-
+i{
+    cursor: pointer;
+}
 
 
 
