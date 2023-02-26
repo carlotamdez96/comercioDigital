@@ -57,7 +57,7 @@ body{
     left: 17px;
     top: -190px;
     color: white;
-    background-color: violet;
+    background-color: var(--color--base);
     border-radius: 50%;
     padding: 3px;
     

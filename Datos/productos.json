@@ -1,8 +1,8 @@
 [
     {
         "id":1,
-        "nombre":"Llavero A",
-        "descripcion":"Hecho con resina y pins",
+        "nombre":"Llavero Letra A",
+        "descripcion":"Llavero solidario, hecho con resina, purpurina y pins. Se han realizado en la asignatura de Empresa, con el objetivo de conocer los pasos de producción de una empresa real.<br>Todos los beneficios irán destinados a una ONG",
         "foto": "prueba.png",
         "precio":"2,50",
         "moneda":"€",
@@ -12,8 +12,8 @@
     },
     {
         "id":2,
-        "nombre":"Llavero B",
-        "descripcion":"Hecho con resina",
+        "nombre":"Llavero Letra B",
+        "descripcion":"Llavero solidario, hecho con resina, purpurina y pins. Se han realizado en la asignatura de Empresa, con el objetivo de conocer los pasos de producción de una empresa real.<br>Todos los beneficios irán destinados a una ONG",
         "foto": "prueba.png",
         "precio":"2,50",
         "moneda":"€",
@@ -23,8 +23,8 @@
     },
     {
         "id":3,
-        "nombre":"Llavero C",
-        "descripcion":"Hecho con resina y papel de oro",
+        "nombre":"Llavero Letra C",
+        "descripcion":"Llavero solidario, hecho con resina, purpurina y pins. Se han realizado en la asignatura de Empresa, con el objetivo de conocer los pasos de producción de una empresa real.<br>Todos los beneficios irán destinados a una ONG",
         "foto": "prueba.png",
         "precio":"2,50",
         "moneda":"€",
@@ -34,8 +34,8 @@
     },
     {
         "id":4,
-        "nombre":"Llavero D",
-        "descripcion":"Hecho con resina y papel de oro",
+        "nombre":"Llavero Letra D",
+        "descripcion":"Llavero solidario, hecho con resina, purpurina y pins. Se han realizado en la asignatura de Empresa, con el objetivo de conocer los pasos de producción de una empresa real.<br>Todos los beneficios irán destinados a una ONG",
         "foto": "prueba.png",
         "precio":"2,50",
         "moneda":"€",
@@ -45,8 +45,8 @@
     },
     {
         "id":5,
-        "nombre":"Llavero E",
-        "descripcion":"Hecho con resina y purpurina",
+        "nombre":"Llavero Letra E",
+        "descripcion":"Llavero solidario, hecho con resina, purpurina y pins. Se han realizado en la asignatura de Empresa, con el objetivo de conocer los pasos de producción de una empresa real.<br>Todos los beneficios irán destinados a una ONG",
         "foto": "prueba.png",
         "precio":"2,50",
         "moneda":"€",
@@ -57,8 +57,8 @@
 
     {
         "id":6,
-        "nombre":"Llavero F",
-        "descripcion":"Hecho con resina y purpurina",
+        "nombre":"Llavero Letra F",
+        "descripcion":"Llavero solidario, hecho con resina, purpurina y pins. Se han realizado en la asignatura de Empresa, con el objetivo de conocer los pasos de producción de una empresa real.<br>Todos los beneficios irán destinados a una ONG",
         "foto": "prueba.png",
         "precio":"2,50",
         "moneda":"€",
@@ -68,8 +68,8 @@
     },
     {
         "id":7,
-        "nombre":"Llavero G",
-        "descripcion":"Hecho con resina ",
+        "nombre":"Llavero Letra G",
+        "descripcion":"Llavero solidario, hecho con resina, purpurina y pins. Se han realizado en la asignatura de Empresa, con el objetivo de conocer los pasos de producción de una empresa real.<br>Todos los beneficios irán destinados a una ONG",
         "foto": "prueba.png",
         "precio":"2,50",
         "moneda":"€",
@@ -79,8 +79,8 @@
     },
     {
         "id":8,
-        "nombre":"Llavero H",
-        "descripcion":"Hecho con resina",
+        "nombre":"Llavero Letra H",
+        "descripcion":"Llavero solidario, hecho con resina, purpurina y pins. Se han realizado en la asignatura de Empresa, con el objetivo de conocer los pasos de producción de una empresa real.<br>Todos los beneficios irán destinados a una ONG",
         "foto": "prueba.png",
         "precio":"2,50",
         "moneda":"€",
