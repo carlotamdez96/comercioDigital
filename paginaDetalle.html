@@ -8,6 +8,7 @@
     <title>Llaveros Solidarios</title>
     <link href="./Estilos/reset.css" rel="stylesheet">
     <link href="./Estilos/variables.css" rel="stylesheet">
+    <script src="./Script/paginaDetalleScript.js" type="module"></script>
     <!-- <link rel="stylesheet" href="./Estilos/estilosGenerales.css"> -->
     <style>
         body{
@@ -42,40 +43,65 @@
             position: absolute;
             top:420px;
             border-radius: 60px 60px 0px 0px;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            padding: 30px;
+     
+            
+            
         }
+        .contenedor1{
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            text-align: justify;
+        }
+        .contenedor1__titulo{
+            font-size: 2.3em;
+        }
+        .contenedor1__precio, .contenedor1__descripcion{
+            font-size: 1.2em;
+            color: rgb(78, 77, 77);
+        }
+        .contenedor2{
+            display: flex;
+            justify-content: space-between;
+        }
+        .contenedor2__boton{
+            width: 100px;
+            padding:5px;
+        }
+        .contador__decremento,.contador__cremento{
+            width: 40px;
+            height: 40px;
+            
+
+        }
+        .contador__decremento{
+            background-color: rgb(192, 190, 190);
+        }
+        button{
+            font-size: 1.3em;
+            background-color: var(--color--base);
+            border: 0;
+            border-radius: 10%;
+            color: white;
+            cursor: pointer;
+        }
+        .contador__texto{
+            width: 30px;
+            height: 30px;
+            text-align: center;
+            font-size: 1.4em;
+            border: 0;
+
+        }
+      
+        
+      
     </style>
-    <script>
-        window.onload=function(){
-            document.querySelector(".navegador__atras").addEventListener("click",()=>window.location.href="pagina.html");
-            var cuerpo = document.querySelector(".cuerpo");
-              //DATOS RECUPERADOS DEL SESSIONSTORAGE
-            var perfil = JSON.parse(sessionStorage.getItem("llavero"));
-            pintaDatos(perfil);
-          
-            console.log(perfil.nombre);
-
-            function pintaDatos(perfil){
-                var imagen = document.createElement("img");
-                imagen.classList.add("cuerpo__imagen");
-                imagen.src=`./Imagenes/${perfil.foto}`;
-                
-                var contenedor = document.createElement("div");
-                contenedor.classList.add("contenedor");
-                var contenedor1 = document.createElement("div");
-                contenedor1.classList.add("contenedor1");
-                var text=`
-                <h1 class="contenedor1__titulo">${perfil.nombre}</h1>
-                <p class="contenedor1__precio">${perfil.precio}</p>
-                <p class="contenedor1__descripcion">${perfil.descripcion}</p>
-                `;
-                contenedor1.innerHTML=text;
-                contenedor.appendChild(contenedor1);
-
-                cuerpo.appendChild(imagen);
-                cuerpo.appendChild(contenedor);
-            }
-        }
-    </script>
+   
 </head>
 <body>
     <nav class="navegador">
