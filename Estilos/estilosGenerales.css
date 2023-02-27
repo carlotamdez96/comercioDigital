@@ -73,7 +73,31 @@ body{
 i{
     cursor: pointer;
 }
+.carritoA{
+    position: absolute;
+    z-index: 2;
+    background-color: aliceblue;
+    top: 60px;
+    right: 0;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+}
+.carrito__contenedor{
+    display: flex;
+    gap: 10px;
+}
+.contenedor__texto{
+    display: flex;
+    flex-direction: column;
+    height: 15vh;
+    justify-content: center;
+}
 
+    /*Tablets*/
+    @media (min-width: 768px) and (min-height:1024px){}
+    /* Estilos para el movil horizontal */
+    @media (min-height: 375px) and (min-width: 600px) {}
 
 
 

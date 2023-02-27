@@ -1,16 +1,44 @@
 window.onload=function(){
   //Referencias
-    document.querySelector(".navegador__atras").addEventListener("click",()=>window.location.href="pagina.html");
+    document.querySelector(".navegador__atras").addEventListener("click",vuelveatras);
     var cantidad=0;
-    var carrito = document.querySelector(".carrito");
+    var divcarrito = document.querySelector(".carrito");
     var miMap = new Map();
-
+    const carrito =document.querySelector(".navegador__carrito");
+    carrito.addEventListener("click",function(){
+      pintaCarrito(miMap);
+    });
     var cuerpo = document.querySelector(".cuerpo");
       //DATOS RECUPERADOS DEL SESSIONSTORAGE
     var perfil = JSON.parse(sessionStorage.getItem("llavero"));
+// localStorage.clear();
+    //MIRAR AQUI!!!!!!!!!!!!!!
+    if(localStorage.key!=null){
+     
+      for (let i =0, len = localStorage.length; i<len; i++) {
+          var key = localStorage.key(i);
+          var value = JSON.parse(localStorage[key]);
+          miMap.set(key,value);
+      }
+  };
+    // let cont =0;
+    // if(localStorage.getItem(cont)!=null){
+    //   for (const iterator of JSON.parse(localStorage.getItem(cont))) {
+    //     miMap.set(cont,iterator);
+    //   }
+      
+    // }
+    
+   
     pintaDatos(perfil);
   
-    
+    function vuelveatras(){
+      for (let [nombre,objeto] of miMap) {
+        localStorage.setItem(nombre,JSON.stringify(objeto));
+    }
+
+      window.location.href="pagina.html"
+    }
 //Funcion que pintará la foto y el cuerpo
     function pintaDatos(perfil){
         var imagen = document.createElement("img");
@@ -89,6 +117,9 @@ window.onload=function(){
     //Function para añadir llaveros al carrito
     function añadeCarrito(){
    
+      if(divcarrito.classList.contains("carritoA")){
+        divcarrito.classList.remove("carritoA");
+      }
       //Añadire al carrito la variable perfil donde se encuentra el objeto que añado y ademas debo guardar la cantidad que se va a comprar
       if(texto.value>=1){
         var imagenMini = perfil.foto;
@@ -96,6 +127,7 @@ window.onload=function(){
         var precioMini = parseFloat(perfil.precio.replace(",","."));
         var monedaMini = perfil.moneda;
         var promocionMini = perfil.promocion;
+
       }
       //Guardo informacion en mi map
 
@@ -108,13 +140,14 @@ window.onload=function(){
           cantidad: texto.value,
           promocion:promocionMini,
           precio: precioMini*parseFloat(texto.value)*(1-promocionMini/100),
+
         });
       }else if(!(miMap.has(nombreMini)) && promocionMini==0){
         miMap.set(nombreMini,{
           nombre: nombreMini,
           imagen: imagenMini,
           moneda: monedaMini,
-          cantidad: texto.value,
+          cantidad: parseFloat(texto.value),
           promocion:promocionMini,
           precio: precioMini*parseFloat(texto.value),
         });
@@ -122,24 +155,28 @@ window.onload=function(){
       }else{
         //Si ya esta guardado entonces modifico la cantidad que tiene
         let llavero = miMap.get(nombreMini);
-        llavero.precio += parseFloat(precioMini)*(llavero.cantidad);
-
         llavero.cantidad=parseFloat(llavero.cantidad)+parseFloat(texto.value);
+        llavero.precio = precioMini*(llavero.cantidad);
+
+        
         
     
       }
-      
-   //referencio el carrito de la compra
 
-      var carrito =document.querySelector(".navegador__carrito");
+
+
       //Funcion sumar cantidad al carrito
+      
      sumacarrito(carrito);
-      carrito.addEventListener("click",pintaCarrito(miMap));
+      
+     
+      
     }
     //Referencias que necesitare para añadir el numero al carrito
     var suma=0;
     var productoañadido = document.createElement("span");
       productoañadido.classList.add("productoañadido");
+
     function sumacarrito(carrito){
       var cantidad = texto.value;
       if(cantidad!=0){
@@ -163,29 +200,39 @@ window.onload=function(){
   function pintaCarrito(miMap){
 
     //Primero lo vacio
-    carrito.innerHTML="";
+    divcarrito.innerHTML="";
+    
     console.log(miMap);
+    
     //Recorro el mapa donde estan los productos
     for (let [nombre,llavero] of miMap) {
         let contenedor = document.createElement("div");
         contenedor.classList.add("carrito__contenedor");
         contenedor.innerHTML=`
           <div class="contenedor__imagen" >
-              <img src=./Imagenes/${llavero.foto} width="200">
+              <img src=./Imagenes/${llavero.imagen} width="100">
           </div>
           <div class="contenedor__texto">
               <p class="texto__titulo">${nombre}</p>
               <p class="texto__precio">${llavero.precio}${llavero.moneda}</p>
               <div class="texto__unidades">
-                <button class="unidades__menos">-</button>
-                <span class="unidades__numero">${llavero.cantidad}</span>
-                <button class="unidades__mas">+</button>
+                <button class="contador__decremento">-</button>
+                <span class="contador__texto ">${llavero.cantidad}</span>
+                <button class="contador__cremento">+</button>
             </div>
           </div>
         `;
-        carrito.appendChild(contenedor);
+        
+        divcarrito.appendChild(contenedor);
+        divcarrito.classList.toggle("carritoA");
+       
+        
     }
+    
 
   }
+
+  //Ahora guardo la cesta de la compra en mi map
+  var miCesta = new Map();
 
 }

@@ -2,6 +2,22 @@ window.onload=function(){
 
     const cuerpo = document.querySelector(".cuerpo");
     const map = new Map();
+        //MIRAR AQUI!!!!!!!!!!!!!!
+    var miCesta = new Map();
+    var divcarrito = document.querySelector(".carrito");
+    const carrito =document.querySelector(".encabezado__carrito");
+    carrito.addEventListener("click",function(){
+      pintaCarrito(miCesta);
+    });
+    // localStorage.clear();
+    if(localStorage.key!=null){
+     
+        for (let i =0, len = localStorage.length; i<len; i++) {
+            var key = localStorage.key(i);
+            var value =JSON.parse( localStorage[key]);
+            miCesta.set(key,value);
+        }
+    };
     
     async function recuperaDatos(){
         const response = await fetch("../Datos/productos.json");
@@ -84,8 +100,49 @@ window.onload=function(){
         let alt = imagenPasada.alt;
         const obj =map.get(alt);
         sessionStorage.setItem("llavero",JSON.stringify(obj));
+        
+        // let contador =0;
+        for (let [nombre,objeto] of miCesta) {
+            localStorage.setItem(nombre,JSON.stringify(objeto));
+        }
         window.location.href="paginaDetalle.html";
-        
-        
     }
+
+
+
+
+    function pintaCarrito(miCesta){
+
+        //Primero lo vacio
+        divcarrito.innerHTML="";
+        
+        console.log(miCesta);
+        
+        //Recorro el mapa donde estan los productos
+        for (let [nombre,llavero] of miCesta) {
+            let contenedor = document.createElement("div");
+            contenedor.classList.add("carrito__contenedor");
+            contenedor.innerHTML=`
+              <div class="contenedor__imagen" >
+                  <img src=./Imagenes/${llavero.imagen} width="100">
+              </div>
+              <div class="contenedor__texto">
+                  <p class="texto__titulo">${nombre}</p>
+                  <p class="texto__precio">${llavero.precio}${llavero.moneda}</p>
+                  <div class="texto__unidades">
+                    <button class="contador__decremento">-</button>
+                    <span class="contador__texto ">${llavero.cantidad}</span>
+                    <button class="contador__cremento">+</button>
+                </div>
+              </div>
+            `;
+            
+            divcarrito.appendChild(contenedor);
+            divcarrito.classList.toggle("carritoA");
+           
+            
+        }
+        
+    
+      }
 }
