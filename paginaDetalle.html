@@ -8,6 +8,7 @@
     <title>Llaveros Solidarios</title>
     <link href="./Estilos/reset.css" rel="stylesheet">
     <link href="./Estilos/variables.css" rel="stylesheet">
+    <link href="./Estilos/estiloscarrito.css" rel="stylesheet">
     <script src="./Script/paginaDetalleScript.js" type="module"></script>
     <!-- <link rel="stylesheet" href="./Estilos/estilosGenerales.css"> -->
     <style>
@@ -60,7 +61,8 @@
             text-align: justify;
         }
         .contenedor1__titulo{
-            font-size: 2.3em;
+            font-size: 2.1em;
+            font-family: var(--fuente--titulo);
         }
         .contenedor1__precio, .contenedor1__descripcion{
             font-size: 1.2em;
@@ -125,19 +127,31 @@
             padding: 3px;
             
         }
+        /* .carrito{
+            position: absolute;
+            top: -1000px;
+            height: 50vh;
+            overflow: scroll;
+            border-radius: 10%;
+            border: 1px dotted white;
+        }
         .carritoA{
             position: absolute;
             z-index: 2;
-            background-color: aliceblue;
+            background-color:var(--color--base);
             top: 60px;
             right: 0;
             padding: 30px;
             display: flex;
+            gap: 10px;
             flex-direction: column;
         }
         .carrito__contenedor{
             display: flex;
             gap: 10px;
+            height: 100%;
+            padding: 10px;
+            background-color: white;
         }
         .contenedor__texto{
             display: flex;
@@ -145,6 +159,15 @@
             height: 15vh;
             justify-content: center;
         }
+        .contenedor__resumen{
+            background-color: white;
+            padding: 10px;
+        }
+        .resumen__factura{
+            cursor: pointer;
+        }
+     */
+
 
                 /*Tablets*/
         @media (min-width: 768px) and (min-height:1024px){}

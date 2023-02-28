@@ -85,7 +85,7 @@ window.onload=function(){
         contenedorcontador.classList.add("contenedor2__contenedorContador");
         contenedorcontador.innerHTML+=`
         <button class="contador__decremento" >-</button>
-        <input  class="contador__texto" name="cantidad" type="text" readonly value="0">
+        <input  class="contador__texto" name="cantidad" type="text" readonly value="1">
         <button class="contador__cremento"  >+</button>  
         `;
         contenedor2.appendChild(boton);
@@ -158,9 +158,6 @@ window.onload=function(){
         llavero.cantidad=parseFloat(llavero.cantidad)+parseFloat(texto.value);
         llavero.precio = precioMini*(llavero.cantidad);
 
-        
-        
-    
       }
 
 
@@ -198,15 +195,17 @@ window.onload=function(){
  
   //Function de pintar carrito
   function pintaCarrito(miMap){
-
+    let contador=0;
     //Primero lo vacio
     divcarrito.innerHTML="";
     
     console.log(miMap);
-    
+    if(miMap.size>0){
+
     //Recorro el mapa donde estan los productos
     for (let [nombre,llavero] of miMap) {
-        let contenedor = document.createElement("div");
+      contador+= llavero.precio;
+        var contenedor = document.createElement("div");
         contenedor.classList.add("carrito__contenedor");
         contenedor.innerHTML=`
           <div class="contenedor__imagen" >
@@ -216,23 +215,28 @@ window.onload=function(){
               <p class="texto__titulo">${nombre}</p>
               <p class="texto__precio">${llavero.precio}${llavero.moneda}</p>
               <div class="texto__unidades">
-                <button class="contador__decremento">-</button>
-                <span class="contador__texto ">${llavero.cantidad}</span>
-                <button class="contador__cremento">+</button>
+                Cantidad:${llavero.cantidad}    
             </div>
+           
           </div>
         `;
-        
         divcarrito.appendChild(contenedor);
-        divcarrito.classList.toggle("carritoA");
-       
-        
+        var adicional=` <div class="contenedor__resumen">
+        <p class="resumen__total">Total:${contador}${llavero.moneda}</p>
+        <a class="resumen__factura">Generar factura</a>
+      </div>`
     }
-    
+   
+    divcarrito.innerHTML+=adicional;
+  }else{
+      divcarrito.innerHTML=`<h2>Carrito vacio</h2>`;
+        divcarrito.style.height="5vh";
+  }
+    divcarrito.classList.toggle("carritoA");
+       
 
   }
 
-  //Ahora guardo la cesta de la compra en mi map
-  var miCesta = new Map();
+
 
 }

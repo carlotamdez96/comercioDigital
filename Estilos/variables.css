@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Inconsolata&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merienda&family=Rampart+One&display=swap');
 :root{
     --fuente--principal:'Inconsolata', monospace;
     --color--base:pink;
+    --fuente--titulo:'Rampart One', cursive;
+    --fuente--subtitulo:'Merienda', cursive;
 }

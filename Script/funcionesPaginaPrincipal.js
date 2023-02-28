@@ -2,7 +2,6 @@ window.onload=function(){
 
     const cuerpo = document.querySelector(".cuerpo");
     const map = new Map();
-        //MIRAR AQUI!!!!!!!!!!!!!!
     var miCesta = new Map();
     var divcarrito = document.querySelector(".carrito");
     const carrito =document.querySelector(".encabezado__carrito");
@@ -17,7 +16,7 @@ window.onload=function(){
             var value =JSON.parse( localStorage[key]);
             miCesta.set(key,value);
         }
-    };
+    }
     
     async function recuperaDatos(){
         const response = await fetch("../Datos/productos.json");
@@ -112,14 +111,17 @@ window.onload=function(){
 
 
     function pintaCarrito(miCesta){
-
+        let contador=0;
         //Primero lo vacio
         divcarrito.innerHTML="";
         
         console.log(miCesta);
-        
+        if(miCesta.size>0){
+
+       
         //Recorro el mapa donde estan los productos
         for (let [nombre,llavero] of miCesta) {
+            contador+= llavero.precio;
             let contenedor = document.createElement("div");
             contenedor.classList.add("carrito__contenedor");
             contenedor.innerHTML=`
@@ -130,18 +132,28 @@ window.onload=function(){
                   <p class="texto__titulo">${nombre}</p>
                   <p class="texto__precio">${llavero.precio}${llavero.moneda}</p>
                   <div class="texto__unidades">
-                    <button class="contador__decremento">-</button>
-                    <span class="contador__texto ">${llavero.cantidad}</span>
-                    <button class="contador__cremento">+</button>
+
+                    Cantidad:${llavero.cantidad}
+             
                 </div>
               </div>
             `;
-            
+            var adicional=` <div class="contenedor__resumen">
+            <p class="resumen__total">Total:${contador}${llavero.moneda}</p>
+            <a class="resumen__factura">Generar factura</a>
+          </div>`
             divcarrito.appendChild(contenedor);
-            divcarrito.classList.toggle("carritoA");
+         
            
             
         }
+        
+         divcarrito.innerHTML+=adicional;
+    }else{
+        divcarrito.innerHTML=`<h2>Carrito vacio</h2>`;
+        divcarrito.style.height="5vh";
+    }
+        divcarrito.classList.toggle("carritoA");
         
     
       }
