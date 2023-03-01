@@ -1,7 +1,7 @@
 .carrito{
     position: absolute;
     top: -1000px;
-    height: 50vh;
+    height: 55vh;
     overflow: scroll;
     border-radius: 10%;
     border: 1px dotted white;
@@ -42,4 +42,10 @@
 }
 .resumen__factura{
     cursor: pointer;
+}
+@media (min-width: 1100px) {
+    .carrito{
+        width: 30vw;
+        height: 75vh;
+    }
 }

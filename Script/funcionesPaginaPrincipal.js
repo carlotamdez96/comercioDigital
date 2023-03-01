@@ -13,7 +13,7 @@ window.onload=function(){
      
         for (let i =0, len = localStorage.length; i<len; i++) {
             var key = localStorage.key(i);
-            var value =JSON.parse( localStorage[key]);
+            var value =JSON.parse(localStorage[key]);
             miCesta.set(key,value);
         }
     }
