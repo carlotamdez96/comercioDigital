@@ -64,10 +64,10 @@ window.onload=function(){
             nuevoPrecio.classList.add("precio__nuevo");
             nuevoPrecio.textContent= calculaNuevoPrecio(producto.precio,producto.promocion)+producto.moneda;   
             contenidoprecio.appendChild(nuevoPrecio);
-            contenedorImagen.appendChild(promocion);
-
-            ficha_contenido.appendChild(contenidoprecio);
             
+            
+            ficha_contenido.appendChild(contenidoprecio);
+            ficha_contenido.appendChild(promocion);
             
           }else{
 

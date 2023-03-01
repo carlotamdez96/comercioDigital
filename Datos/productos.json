@@ -40,7 +40,7 @@
         "precio":"2,50",
         "moneda":"€",
         "unidades":3,
-        "promocion":0,
+        "promocion":10,
         "tipo":"letra"
     },
     {
@@ -51,7 +51,7 @@
         "precio":"2,50",
         "moneda":"€",
         "unidades":3,
-        "promocion":0,
+        "promocion":10,
         "tipo":"letra"
     },
 
@@ -86,6 +86,17 @@
         "moneda":"€",
         "unidades":3,
         "promocion":20,
+        "tipo":"letra"
+    },   
+     {
+        "id":9,
+        "nombre":"Llavero Letra G",
+        "descripcion":"Llavero solidario, hecho con resina, purpurina y pins. Se han realizado en la asignatura de Empresa, con el objetivo de conocer los pasos de producción de una empresa real.<br>Todos los beneficios irán destinados a una ONG",
+        "foto": "prueba.png",
+        "precio":"2,50",
+        "moneda":"€",
+        "unidades":3,
+        "promocion":10,
         "tipo":"letra"
     }
 ]

@@ -19,11 +19,13 @@ body{
 .cuerpo{
     display: grid;
     width: 90%;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: repeat(auto-fill,minmax(100px,160px));
     gap: 20px;
     padding-top: 20px;
-    padding-left: 20px;
-    
+
+    min-width: 198px;
+    margin: 0 auto;
+    justify-content: center;
     
 }
 .cuerpo__ficha{
@@ -33,6 +35,13 @@ body{
     /* gap: 2px; */
     background-color: white;
     
+    
+}
+.ficha__contenedor__imagen{
+    
+    width: 100%;
+    
+    /* justify-content: center; */
 }
 .ficha__imagen{
     height: 200px;
@@ -53,8 +62,8 @@ body{
     font-size: 1.5em;
     position: relative;
     z-index: 1;
-    left: 17px;
-    top: -190px;
+    left: -25px;
+    top: -250px;
     color: white;
     background-color: var(--color--base);
     border-radius: 50%;
@@ -129,7 +138,7 @@ i{
     height: 15vh;
     background-color: var(--color--base);
     margin-top: 20px;
-    margin-bottom: 10px;
+    
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -149,9 +158,46 @@ i{
 
 
     /*Tablets*/
-    @media (min-width: 768px) and (min-height:1024px){}
+    @media (min-width: 768px) and (min-height:1024px){
+
+    }
     /* Estilos para el movil horizontal */
     @media (min-height: 375px) and (min-width: 600px) {}
+    /*Pantallas enteras*/
+    @media (min-width: 992px) {
+        .cuerpo{
+            grid-template-columns: repeat(auto-fill,minmax(300px,500px));
+            gap: 90px;
+            margin: 0 auto;
+            justify-content: center;
+        }
+        .cuerpo__ficha{
+           
+            /* height: 590px; */
+        }
+        .ficha__contenedor__imagen{
+            height: 80%;
+            display: flex;
+            justify-content: center;
+        
+        }
+        
+        .ficha__imagen{
+            height: 450px;
+        }
+   
+        .ficha__promocion{
+            /* height: 150px;
+            width: 150px; */
+            left: -90px;
+            position: relative;
+            top: -510px;
+            
+            font-size: 2.5em;
+            
+        }
+    }
+
 
 
 
