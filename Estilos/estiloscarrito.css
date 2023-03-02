@@ -47,5 +47,9 @@
     .carrito{
         width: 30vw;
         height: 75vh;
+        
+    }
+    .carritoA  {
+        top: 100px;
     }
 }
