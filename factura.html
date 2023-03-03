@@ -4,25 +4,138 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./Estilos/reset.css" rel="stylesheet">
     <title>Factura Llaveros solidarios</title>
+    <style>
+      
+      .factura{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 900px;
+        height: 900px;
+        background-color: rgb(255, 136, 136);
+        padding: 60px;
+      }
+        .encabezado{
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+        }
+        .pie{
+            display: flex;
+            justify-content: space-between;
+        }
+        .encabezado__izquierda{
+            display: flex;
+            flex-direction: column;
+            gap: 65px;
+        }
+        .izquierda__cliente{
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .izquierda__titulo{
+            font-size: 2.3em;
+        }
+        .subrayado{
+            background-color: pink;
+            padding: 5px;
+            font-size: 1.5em;
+        }
+        .cliente__nombre{
+            font-size: 1.2em;
+        }
+        .encabezado__derecha{
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            width: 45%;
+           
+            align-items: center;
+        }
+        
+        .derecha__subtitulo{
+            font-size: 2.5em;
+        }
+    </style>
 </head>
 <body>
     <head class="encabezado"></head>
     <section class="factura">
+        <div class="encabezado">
         <div class="encabezado__izquierda">
-            <div class="factura__encabezado">FACTURA</div>
+            <h2 class="izquierda__titulo">FACTURA</h2>
+            <div class="izquierda__cliente ">
+                <span class="cliente__encabezado subrayado">Facturar a</span>
+                <p class="cliente__nombre">Pepe Rodriguez Alvarez</p>
+                <p class="cliente__direccion">Calle fmklasfmsdksdsdasalfds</p>
+                <p class="cliente__telefono">1122</p>
+                <p class="cliente__correo">kadmsk@</p>
+            </div>
         </div>
         
-        <div class="factura__subtitulo">
-            <h2 class="subtitulo__subtitulo">Llaveros Solidarios</h2>
+        <div class="encabezado__derecha">
+            <h2 class="derecha__subtitulo">Llaveros Solidarios</h2>
             <ul class="subtitulo__direccion">
-                <li>Dirección:C/ Artilleria</li>
-                <li>Ciudad: Gijón</li>
-                <li>Teléfono: 672777897</li>
+                <li>C/ Artilleria</li>
+                <li>Gijón</li>
+                <li>672777897</li>
             </ul>
+            <div class="derecha__fecha ">
+                <table class="fecha__encabezado ">
+                    <tr class="subrayado">
+                        <th>Factura</th>
+                        <th>Fecha</th>
+                    </tr>
+                    <tr>
+                        <td>nº577</td>
+                        <td>23/12</td>
+                    </tr>
+                </table>
+            </div>
         </div>
-        
-
+        </div>
+        <div class="cuerpo">
+            <table class="tabla">
+                <thead>
+                    <th>Producto</th>
+                    <th>Cantidad</th>
+                    <th>Precio unitario</th>
+                    <th>Total</th>
+                </thead>
+                <tbody>
+                    <td>Llavero letra A</td>
+                    <td>2</td>
+                    <td>2,50</td>
+                    <td>5</td>
+                </tbody>
+            </table>
+            
+        </div>
+        <div class="pie">
+           
+                <p>Gracias por su compra!</p>
+                <table>
+                    <tbody>
+                        <tr>
+                            <th>Subtotal</th>
+                            <td>1234567</td>
+                        </tr>
+                       <tr>
+                        <th>Tax</th>
+                        <td>20%</td>
+                       </tr>
+                       
+                    </tbody>
+                    <tfoot>
+                        <th>Total</th>
+                        <td>45854654165</td>
+                    </tfoot>
+                </table>
+          
+        </div>
     </section>
     
 </body>
