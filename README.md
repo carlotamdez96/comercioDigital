@@ -1,2 +1,2 @@
 # comercioDigital
-[Enlace](https://carlotamdez96.github.io/ComercioDigital/index.html);
+[Pincha aquí](https://carlotamdez96.github.io/comercioDigital/);
