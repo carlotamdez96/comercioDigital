@@ -6,21 +6,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./Estilos/reset.css" rel="stylesheet">
     <title>Factura Llaveros solidarios</title>
+    <link rel="stylesheet" href="./Estilos/variables.css">
+    <script src="https://kit.fontawesome.com/f740c0a1da.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
+        integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <style>
-      
+      body{
+        background-color: rgb(180, 179, 179);
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
       .factura{
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
+        justify-content: space-around;
         width: 900px;
         height: 900px;
-        background-color: rgb(255, 136, 136);
+        background-color: white;
         padding: 60px;
+        margin: 0 auto;
+        position: relative;
+        font-family: var(--fuente--texto);
+      }
+      .factura::after{
+        position: absolute;
+        content: "";
+        display: block;
+        border-top: 200px solid pink;
+        border-right: 900px solid rgba(255, 255, 0, 0);
+        top: 0;
+        left: 0;
+
+      }
+      .factura::before{
+        position: absolute;
+        content: "";
+        display: block;
+        border-top: 500px solid rgb(233, 233, 233);
+        border-right: 900px solid rgba(255, 255, 0, 0);
+        top: 0;
+        left: 0;
+       
+
       }
         .encabezado{
             display: flex;
             width: 100%;
             justify-content: space-between;
+            position: relative;
+            z-index: 1;
+            
         }
         .pie{
             display: flex;
@@ -31,21 +68,38 @@
             flex-direction: column;
             gap: 65px;
         }
+       
         .izquierda__cliente{
             display: flex;
             flex-direction: column;
             gap: 8px;
         }
         .izquierda__titulo{
-            font-size: 2.3em;
+            font-size: 2.7em;
+            font-family: var(--fuente--titulo);
         }
         .subrayado{
             background-color: pink;
             padding: 5px;
-            font-size: 1.5em;
+            font-size: 1.3em;
+            color: white;
+        }
+        .fecha__encabezado{
+            width: 200px;
+        }
+        .fecha__encabezado td{
+            text-align: right;
         }
         .cliente__nombre{
             font-size: 1.2em;
+        }
+        .resumen{
+            width: 200px;
+        }
+        .resumen tfoot{
+            border-top: 1px solid black;
+            font-size: 1.5em;
+            text-transform: uppercase;
         }
         .encabezado__derecha{
             display: flex;
@@ -55,24 +109,74 @@
            
             align-items: center;
         }
+        .pie>p {
+            font-family: var(--fuente--subtitulo);
+            font-style: oblique;
+            letter-spacing: 2px;
+            font-size: 1.5em;
+        }
         
         .derecha__subtitulo{
-            font-size: 2.5em;
+            font-size: 2em;
+            font-family: var(--fuente--subtitulo);
+            font-weight: bolder;
         }
+        .tabla {
+            margin: 30px auto;
+            width: 95%;
+            text-align: center;
+        }
+        thead th {
+            font-family: 'Tilt Warp',
+                cursive;
+            color: white;
+            text-align: center;
+            vertical-align: middle;
+            height: 30px;
+            background-color: pink;
+        }
+        td {
+            padding: 10px;
+        }
+        .primero{
+            background-color: white;
+            padding: 10px;
+            color: pink;
+            display: flex;
+            justify-content: space-between;
+            font-size: 2em;
+            width: 900px;
+            margin: 0 auto;
+        }
+        i,a{
+            cursor: pointer;
+        }
+        .cuerpo{
+            position: relative;
+            /* z-index: 1; */
+        }
+        
+
     </style>
 </head>
 <body>
-    <head class="encabezado"></head>
+    <header class="primero">
+        <a href="pagina.html"><i class="navegador__atras fa-solid fa-arrow-left"></i></a>
+        <span onclick="creafactura()">Descargar  <i class="fa-solid fa-file-arrow-down"></i>
+        </span>
+    </header>
     <section class="factura">
+       
         <div class="encabezado">
+        
         <div class="encabezado__izquierda">
             <h2 class="izquierda__titulo">FACTURA</h2>
             <div class="izquierda__cliente ">
                 <span class="cliente__encabezado subrayado">Facturar a</span>
-                <p class="cliente__nombre">Pepe Rodriguez Alvarez</p>
-                <p class="cliente__direccion">Calle fmklasfmsdksdsdasalfds</p>
-                <p class="cliente__telefono">1122</p>
-                <p class="cliente__correo">kadmsk@</p>
+                <p class="cliente__nombre"></p>
+                <p class="cliente__direccion"></p>
+                <p class="cliente__telefono"></p>
+                <p class="cliente__correo"></p>
             </div>
         </div>
         
@@ -90,8 +194,8 @@
                         <th>Fecha</th>
                     </tr>
                     <tr>
-                        <td>nº577</td>
-                        <td>23/12</td>
+                        <td>Nº 577</td>
+                        <td class="fecha">23/12</td>
                     </tr>
                 </table>
             </div>
@@ -105,11 +209,8 @@
                     <th>Precio unitario</th>
                     <th>Total</th>
                 </thead>
-                <tbody>
-                    <td>Llavero letra A</td>
-                    <td>2</td>
-                    <td>2,50</td>
-                    <td>5</td>
+                <tbody class="tabla__productos">
+                    
                 </tbody>
             </table>
             
@@ -117,26 +218,117 @@
         <div class="pie">
            
                 <p>Gracias por su compra!</p>
-                <table>
+                <table class="resumen">
                     <tbody>
                         <tr>
                             <th>Subtotal</th>
-                            <td>1234567</td>
+                            <td class="resumen__subtotal">1234567</td>
                         </tr>
                        <tr>
-                        <th>Tax</th>
-                        <td>20%</td>
+                        <th>Tasas</th>
+                        <td class="resumen__tasas">5%</td>
                        </tr>
                        
                     </tbody>
                     <tfoot>
                         <th>Total</th>
-                        <td>45854654165</td>
+                        <td class="resumen__total">45854654165</td>
                     </tfoot>
                 </table>
           
         </div>
     </section>
+    <script>
+        const fecha = new Date(Date.now()).toLocaleString().split(",")[0];
+        
+        const miMap = new Map();
+        const tablapintar = document.querySelector(".tabla__productos");
+        console.log(fecha);
+        //Creo un objeto con los datos del cliente
+        const cliente={
+            nombre:"Pepe",
+            apellido:"Rodriguez",
+            direccion:"Calle Menéndez Pelayo nº6",
+            telefono:"722654321",
+            fecha:fecha,
+            email:"pepepepito@hotmail.com",
+            
+        }
+
+        //estos datos los pinto en la sección ya creada
+        document.querySelector(".cliente__nombre").textContent=`${cliente.nombre} ${cliente.apellido}`;
+        document.querySelector(".cliente__direccion").textContent=cliente.direccion;
+        document.querySelector(".cliente__telefono").textContent=cliente.telefono;
+        document.querySelector(".cliente__correo").textContent=cliente.email;
+        document.querySelector(".fecha").textContent=cliente.fecha;
+
+
+        //Recupero los datos del localstorage
+        if(localStorage.key!=null){
+            
+            for (let i =0, len = localStorage.length; i<len; i++) {
+                var key = localStorage.key(i);
+                var value = JSON.parse(localStorage[key]);
+                miMap.set(key,value);
+            }
+        };
+        var suma=0 ;
+        var moneda;
+        //Una vez que tenemos los datos del carrito almacenados vamos a pintarlos en la tabla
+        for (let [clave,valor] of miMap) {
+            let precioU = valor.precio/valor.cantidad;
+            
+            tablapintar.innerHTML+=`
+            <tr>
+                <td>${clave}</td>
+                <td >${valor.cantidad}</td>
+                <td >${precioU}${valor.moneda}</td>
+                <td >${valor.precio}${valor.moneda}</td>
+                
+                </tr>
+            `;
+            moneda= valor.moneda;
+            suma += valor.precio;
+          
+        }
+        var tasas = document.querySelector(".resumen__tasas").textContent;
+        
+        //Pintamos el subtotal
+        document.querySelector(".resumen__subtotal").textContent=`${suma}${moneda}`;
+        var modTasas = parseInt(tasas.substring(0, tasas.length - 1));
+        
+        var totalF = suma*(1+(modTasas/100));
+        console.log(totalF);
+        document.querySelector(".resumen__total").textContent=`${totalF}${moneda}`;
+
+        function creafactura() {
+
+            let factura = document.querySelector(".factura");
+            html2pdf()
+                .set({
+                    margin: 0.5,
+                    filename: "LlaverosSolidarios.pdf",
+                    image: {
+                        type: "jpeg",
+                        quality: 0.9
+                    },
+                    html2canvas: {
+                        scale: 3,
+                        letterRendering: true,
+                    },
+                    jsPDF: {
+                        unit: "in",
+                        format: "a3",
+                        orientation: "portrait",
+                    }
+                })
+
+                .from(factura)
+                .save();
+
+
+            }
+    </script>
     
 </body>
 </html>

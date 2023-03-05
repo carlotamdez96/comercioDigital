@@ -2,7 +2,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Merienda&family=Rampart+One&display=swap');
 :root{
     --fuente--principal:'Inconsolata', monospace;
-    --color--base:pink;
+    --color--base:#ffc0cb;
     --fuente--titulo:'Rampart One', cursive;
     --fuente--subtitulo:'Merienda', cursive;
+    --fuente--texto:'Quicksand', sans-serif;
 }

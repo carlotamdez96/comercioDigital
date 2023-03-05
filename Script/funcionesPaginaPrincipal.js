@@ -19,7 +19,7 @@ window.onload=function(){
     }
     
     async function recuperaDatos(){
-        const response = await fetch("../Datos/productos.json");
+        const response = await fetch("./Datos/productos.json");
         const productos = await response.json();
         trataDatos(productos);
         var imagenes= document.querySelectorAll(".ficha__imagen");
@@ -117,11 +117,12 @@ window.onload=function(){
         
         console.log(miCesta);
         if(miCesta.size>0){
-
+            let con=0;
        
         //Recorro el mapa donde estan los productos
         for (let [nombre,llavero] of miCesta) {
             contador+= llavero.precio;
+            
             let contenedor = document.createElement("div");
             contenedor.classList.add("carrito__contenedor");
             contenedor.innerHTML=`
@@ -136,11 +137,13 @@ window.onload=function(){
                     Cantidad:${llavero.cantidad}
              
                 </div>
+                <i onclick="elimina('${llavero.nombre}')" class="fa-solid fa-trash-can"></i>
               </div>
             `;
+            con++;
             var adicional=` <div class="contenedor__resumen">
             <p class="resumen__total">Total:${contador}${llavero.moneda}</p>
-            <a class="resumen__factura">Generar factura</a>
+            <a class="resumen__factura" href="factura.html">Generar factura</a>
           </div>`
             divcarrito.appendChild(contenedor);
          

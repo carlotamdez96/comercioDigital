@@ -139,6 +139,7 @@ window.onload=function(){
           moneda: monedaMini,
           cantidad: texto.value,
           promocion:promocionMini,
+          precioU: perfil.precio,
           precio: precioMini*parseFloat(texto.value)*(1-promocionMini/100),
 
         });
@@ -149,6 +150,7 @@ window.onload=function(){
           moneda: monedaMini,
           cantidad: parseFloat(texto.value),
           promocion:promocionMini,
+          precioU: precioMini,
           precio: precioMini*parseFloat(texto.value),
         });
       
@@ -223,7 +225,7 @@ window.onload=function(){
         divcarrito.appendChild(contenedor);
         var adicional=` <div class="contenedor__resumen">
         <p class="resumen__total">Total:${contador}${llavero.moneda}</p>
-        <a class="resumen__factura">Generar factura</a>
+        <a class="resumen__factura" href="factura.html">Generar factura</a>
       </div>`
     }
    
