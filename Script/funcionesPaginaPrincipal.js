@@ -153,7 +153,7 @@ window.onload=function(){
         
          divcarrito.innerHTML+=adicional;
     }else{
-        divcarrito.innerHTML=`<h2>Carrito vacio</h2>`;
+        divcarrito.innerHTML=`<h2 class="carrito__vacio">Carrito vacio</h2>`;
         divcarrito.style.height="5vh";
     }
         divcarrito.classList.toggle("carritoA");

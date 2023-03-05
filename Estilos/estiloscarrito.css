@@ -20,7 +20,9 @@
     
 }
 
-
+.carrito__vacio{
+    font-family: var(--fuente--texto);
+}
 
 .carrito__contenedor{
     display: flex;
