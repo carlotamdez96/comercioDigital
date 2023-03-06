@@ -239,11 +239,11 @@ window.onload=function(){
     }
    
     divcarrito.innerHTML+=adicional;
-    divcarrito.style.height="50vh";
+    // divcarrito.style.height="50vh";
 
   }else{
       divcarrito.innerHTML=`<h2 class="carrito__vacio">Carrito vacio</h2>`;
-        divcarrito.style.height="5vh";
+        // divcarrito.style.height="5vh";
   }
     divcarrito.classList.toggle("carritoA");
    
