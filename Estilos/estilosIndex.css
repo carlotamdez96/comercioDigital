@@ -9,7 +9,7 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 470px;
+    padding-top: 400px;
     gap: 13px;
     font-family: var(--fuente--principal);
     justify-content: center;
