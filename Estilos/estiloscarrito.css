@@ -8,9 +8,9 @@
 
 }
 .carritoA{
-    position: fixed;
+    position: absolute;
     z-index: 2;
-
+    overflow: scroll;
     top: 60px;
     right: 0;
     padding: 30px;
