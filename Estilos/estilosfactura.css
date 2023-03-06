@@ -1,0 +1,147 @@
+body{
+    background-color: rgb(180, 179, 179);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .factura{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 900px;
+    height: 900px;
+    background-color: white;
+    padding: 60px;
+    margin: 0 auto;
+    position: relative;
+    font-family: var(--fuente--texto);
+  }
+  .factura::after{
+    position: absolute;
+    content: "";
+    display: block;
+    border-top: 200px solid pink;
+    border-right: 900px solid rgba(255, 255, 0, 0);
+    top: 0;
+    left: 0;
+
+  }
+  .factura::before{
+    position: absolute;
+    content: "";
+    display: block;
+    border-top: 500px solid rgb(233, 233, 233);
+    border-right: 900px solid rgba(255, 255, 0, 0);
+    top: 0;
+    left: 0;
+   
+
+  }
+    .encabezado{
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        position: relative;
+        z-index: 1;
+        
+    }
+    .pie{
+        display: flex;
+        justify-content: space-between;
+    }
+    .encabezado__izquierda{
+        display: flex;
+        flex-direction: column;
+        gap: 65px;
+    }
+   
+    .izquierda__cliente{
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+    .izquierda__titulo{
+        font-size: 2.7em;
+        font-family: var(--fuente--titulo);
+    }
+    .subrayado{
+        background-color: pink;
+        padding: 5px;
+        font-size: 1.3em;
+        color: white;
+    }
+    .fecha__encabezado{
+        width: 200px;
+    }
+    .fecha__encabezado td{
+        text-align: right;
+    }
+    .cliente__nombre{
+        font-size: 1.2em;
+    }
+    .resumen{
+        width: 200px;
+    }
+    .resumen tfoot{
+        border-top: 1px solid black;
+        font-size: 1.5em;
+        text-transform: uppercase;
+    }
+    .encabezado__derecha{
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        width: 45%;
+       
+        align-items: center;
+    }
+    .pie>p {
+        font-family: var(--fuente--subtitulo);
+        font-style: oblique;
+        letter-spacing: 2px;
+        font-size: 1.5em;
+    }
+    
+    .derecha__subtitulo{
+        font-size: 2em;
+        font-family: var(--fuente--subtitulo);
+        font-weight: bolder;
+    }
+    .tabla {
+        margin: 30px auto;
+        width: 95%;
+        text-align: center;
+    }
+    thead th {
+        font-family: 'Tilt Warp',
+            cursive;
+        color: white;
+        text-align: center;
+        vertical-align: middle;
+        height: 30px;
+        background-color: pink;
+    }
+    .tabla__productos tr :nth-child(1){
+        text-align: left;
+    }
+    td {
+        padding: 10px;
+    }
+    .primero{
+        background-color: white;
+        padding: 10px;
+        color: pink;
+        display: flex;
+        justify-content: space-between;
+        font-size: 2em;
+        width: 900px;
+        margin: 0 auto;
+    }
+    i,a{
+        cursor: pointer;
+    }
+    .cuerpo{
+        position: relative;
+        /* z-index: 1; */
+    }
+    
