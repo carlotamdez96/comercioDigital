@@ -8,7 +8,7 @@
 
 }
 .carritoA{
-    position: absolute;
+    position: fixed;
     z-index: 2;
 
     top: 60px;
