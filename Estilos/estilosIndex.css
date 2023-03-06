@@ -13,15 +13,17 @@ body{
     gap: 13px;
     font-family: var(--fuente--principal);
     justify-content: center;
-   
+   color: white;
 }
 .contenedor__titulo{
     font-size: 1.9em;
+    text-shadow: 0.1em 0.1em 0.2em black;
     /* letter-spacing: 13px; */
 }
 .contenedor__parrafo{
     font-size: 1.2em;
     text-align: center;
+    
     text-shadow: 0.1em 0.1em 0.2em black;
     
 }
