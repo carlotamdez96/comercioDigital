@@ -55,6 +55,9 @@
             
             
         }
+        .papelera{
+            color: pink;
+        }
         .contenedor1{
             display: flex;
             flex-direction: column;
@@ -114,6 +117,20 @@
             padding: 10px;
             border-radius: 50%;
         }
+        .contenedor1__precio{
+          position: relative;
+        }
+        /* .contenedor1__precio::after{
+            position: absolute;
+            content: "";
+            width: 35px; 
+            height: 4px; 
+            transform: rotate(40deg);
+            top: 15px;
+            right: 250px;
+            background-color: rgb(237, 51, 51);
+        } */
+        
 
     
         .productoañadido{
@@ -171,9 +188,25 @@
 
 
                 /*Tablets*/
-        @media (min-width: 768px) and (min-height:1024px){}
+        @media (min-width: 768px) and (min-height:1024px){
+            .cuerpo{
+                margin-top: 0;
+                position: relative;
+                top: -20px;
+            }
+        }
         /* Estilos para el movil horizontal */
-        @media (min-height: 375px) and (min-width: 600px) {}
+        @media (min-height: 375px) and (min-width: 600px) {
+            .cuerpo__imagen{
+                margin-top: 0;
+                position: relative;
+                top: -100px;
+            }
+            .contenedor1{
+                gap: 80px;
+            }
+           
+        }
         @media (min-width: 840px) {
                         @keyframes promo {
                 0% {
@@ -192,6 +225,7 @@
                 animation: promo 1s ease 0s 1 normal forwards;
 
             }
+           
             .contenedor2__boton:hover{
                 background-color: rgb(255, 108, 132);
             }
@@ -233,7 +267,7 @@
                 width: 100%;
                 margin-top: 0;
                 position: relative;
-                top: -20px;
+                top: -35px;
                 
                 
 

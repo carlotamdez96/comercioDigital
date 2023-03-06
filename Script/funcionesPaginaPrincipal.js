@@ -84,7 +84,8 @@ window.onload=function(){
         }
     }
     function calculaNuevoPrecio(precio,promocion){
-        var dinero = parseFloat(precio,10);
+      var d = precio.replace(",",".");
+        var dinero = parseFloat(d,10);
         var descuento = parseFloat(promocion,10);
         return dinero*(1-(descuento/100));
     }
@@ -117,7 +118,7 @@ window.onload=function(){
         
         console.log(miCesta);
         if(miCesta.size>0){
-            let con=0;
+       
        
         //Recorro el mapa donde estan los productos
         for (let [nombre,llavero] of miCesta) {
@@ -137,16 +138,21 @@ window.onload=function(){
                     Cantidad:${llavero.cantidad}
              
                 </div>
-                <i onclick="elimina('${llavero.nombre}')" class="fa-solid fa-trash-can"></i>
+               
               </div>
             `;
-            con++;
+            var borrado = document.createElement("i");
+            borrado.classList.add("fa-solid");
+            borrado.classList.add("fa-trash-can");
+            borrado.classList.add("papelera");
+            contenedor.appendChild(borrado);
+            
             var adicional=` <div class="contenedor__resumen">
             <p class="resumen__total">Total:${contador}${llavero.moneda}</p>
             <a class="resumen__factura" href="factura.html">Generar factura</a>
           </div>`
             divcarrito.appendChild(contenedor);
-         
+            
            
             
         }
@@ -157,7 +163,25 @@ window.onload=function(){
         divcarrito.style.height="5vh";
     }
         divcarrito.classList.toggle("carritoA");
-        
-    
+        borrado.addEventListener("click", borra);
+        quitalo();
+     
       }
+
+
+      function quitalo(){
+        let papeleras= document.querySelectorAll(".papelera");
+        for (const papel of papeleras) {
+            papel.addEventListener("click",borra);
+        }
+      }
+    
+
+      function borra(even){
+        let letra= even.target.previousElementSibling.children[0].textContent;
+        miCesta.delete(letra);
+        this.parentNode.remove();
+        localStorage.removeItem(letra);
+      }
+    
 }

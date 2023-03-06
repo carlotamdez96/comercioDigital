@@ -222,23 +222,47 @@ window.onload=function(){
            
           </div>
         `;
-        divcarrito.appendChild(contenedor);
-        var adicional=` <div class="contenedor__resumen">
-        <p class="resumen__total">Total:${contador}${llavero.moneda}</p>
-        <a class="resumen__factura" href="factura.html">Generar factura</a>
-      </div>`
+        
+       
+      var borrado = document.createElement("i");
+      borrado.classList.add("fa-trash-can");
+      borrado.classList.add("fa-solid");
+      
+      borrado.classList.add("papelera");
+      contenedor.appendChild(borrado);
+      var adicional=` <div class="contenedor__resumen">
+      <p class="resumen__total">Total:${contador}${llavero.moneda}</p>
+      <a class="resumen__factura" href="factura.html">Generar factura</a>
+    </div>`
+    divcarrito.appendChild(contenedor);
+    localStorage.setItem(nombre,JSON.stringify(llavero));
     }
    
     divcarrito.innerHTML+=adicional;
+    divcarrito.style.height="50vh";
+
   }else{
       divcarrito.innerHTML=`<h2 class="carrito__vacio">Carrito vacio</h2>`;
         divcarrito.style.height="5vh";
   }
     divcarrito.classList.toggle("carritoA");
-       
+   
+    quitalo();
 
   }
+  function quitalo(){
+    let papeleras= document.querySelectorAll(".papelera");
+    for (const papel of papeleras) {
+        papel.addEventListener("click",borra);
+    }
+  }
 
+ function borra(even){
+        let letra= even.target.previousElementSibling.children[0].textContent;
+        miMap.delete(letra);
+        this.parentNode.remove();
+        localStorage.removeItem(letra);
+      }
 
 
 }

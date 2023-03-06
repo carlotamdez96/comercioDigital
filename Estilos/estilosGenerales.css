@@ -164,7 +164,19 @@ i{
     right: 0;
     padding-right: 10px;
 }
+.precio__precio{
+    
+    text-decoration: line-through;
+}
+/* .precio__precio::after{
+    display: block;
+    position: absolute;
+    content: "";
+    border-top: 50px solid black;
+    border-bottom: 50px solid rgb(249, 20, 20);
+    border-right: 150px solid rgb(125, 3, 3);
 
+} */
 
     /*Tablets*/
     @media (min-width: 768px) and (min-height:1024px){
@@ -218,6 +230,9 @@ i{
             
             font-size: 2.5em;
             
+        }
+        .pie{
+            height: 10vh;
         }
         
     }

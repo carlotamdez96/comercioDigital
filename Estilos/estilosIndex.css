@@ -22,6 +22,7 @@ body{
 .contenedor__parrafo{
     font-size: 1.2em;
     text-align: center;
+    text-shadow: 0.1em 0.1em 0.2em black;
     
 }
 .contenedor__boton{

@@ -301,8 +301,9 @@
         var modTasas = parseInt(tasas.substring(0, tasas.length - 1));
         
         var totalF = suma*(1+(modTasas/100));
-        console.log(totalF);
-        document.querySelector(".resumen__total").textContent=`${totalF}${moneda}`;
+        var totalF2 = totalF.toFixed(2);
+        console.log(totalF2);
+        document.querySelector(".resumen__total").textContent=`${totalF2}${moneda}`;
 
         function creafactura() {
 
@@ -322,7 +323,7 @@
                     jsPDF: {
                         unit: "in",
                         format: "a3",
-                        orientation: "landscape",
+                        orientation: "portrait",
                     }
                 })
 
